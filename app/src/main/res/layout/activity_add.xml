@@ -30,7 +30,7 @@
             android:id="@+id/title_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="タイトル" />
+            android:text="@string/title" />
 
         <EditText
             android:id="@+id/title_edit"
@@ -40,11 +40,46 @@
             android:text="サンプルタイトル" />
 
         <TextView
-            android:id="@+id/detail_view"
+            android:id="@+id/date_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title_edit"
-            android:text="詳細" />
+            android:text="@string/date" />
+
+        <EditText
+            android:id="@+id/date_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_view"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="@+id/priority_view"
+            android:text="20020/01/01"
+            android:inputType="none"
+            android:focusable="false"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/priority_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_edit"
+            android:text="@string/priority" />
+
+        <Spinner
+            android:id="@+id/priority_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priority_view"
+            android:layout_alignParentEnd="true"
+            android:entries="@array/list"
+            android:spinnerMode="dialog" />
+
+        <TextView
+            android:id="@+id/detail_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priority_spinner"
+            android:text="@string/detail" />
 
         <EditText
             android:id="@+id/detail_edit"
@@ -58,7 +93,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/detail_edit"
-            android:text="登録" />
+            android:text="@string/add" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_button"
+            android:text="@string/delete" />
+
 
     </RelativeLayout>
 </LinearLayout>
