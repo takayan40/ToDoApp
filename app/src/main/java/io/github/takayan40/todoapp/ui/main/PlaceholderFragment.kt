@@ -1,52 +1,69 @@
 package io.github.takayan40.todoapp.ui.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import io.github.takayan40.todoapp.R
+import io.github.takayan40.todoapp.Todo
+import io.github.takayan40.todoapp.TodoAdapter
+import io.github.takayan40.todoapp.ViewHolder
 
-/**
- * A placeholder fragment containing a simple view.
- */
-class PlaceholderFragment : Fragment() {
 
-    private lateinit var pageViewModel: PageViewModel
+class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
-            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-        }
-    }
+    private lateinit var mainPresenter: MainPresenter
+    private lateinit var todoAdapter: TodoAdapter
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
-        val textView: TextView = root.findViewById(R.id.section_label)
-        pageViewModel.text.observe(this, Observer<String> {
-            textView.text = it
-        })
         return root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        mainPresenter = MainPresenter(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.mainRecyclerView)
+        todoAdapter = TodoAdapter(this, ArrayList())
+        val viewManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = viewManager
+        recyclerView.adapter = todoAdapter
+
+    }
+
+
+    override fun onClickItemListener(view: View, position: Int) {
+        Toast.makeText(context, "position $position was tapped", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mainPresenter.dataUpdate()
+    }
+
+    override fun updateAdapter(list: ArrayList<Todo>) {
+        todoAdapter.update(list)
+
+    }
+
     companion object {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private const val ARG_SECTION_NUMBER = "section_number"
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         @JvmStatic
         fun newInstance(sectionNumber: Int): PlaceholderFragment {
             return PlaceholderFragment().apply {

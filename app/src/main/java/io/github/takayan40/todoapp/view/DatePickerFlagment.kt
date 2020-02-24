@@ -1,4 +1,4 @@
-package io.github.takayan40.todoapp
+package io.github.takayan40.todoapp.view
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -11,13 +11,6 @@ import java.util.Locale
 
 class DatePickerDialogFragment : DialogFragment(),
     DatePickerDialog.OnDateSetListener {
-
-    companion object {
-        /**
-         * 値渡しをするときのタグ
-         */
-        const val ARG_CODE = "dialog_code"
-    }
 
     private var listener: Callback? = null
 
@@ -42,12 +35,10 @@ class DatePickerDialogFragment : DialogFragment(),
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, dayOfMonth: Int) {
-        val requestCode = arguments?.getInt(ARG_CODE)
-
-        listener?.onDialogResult(requestCode, year, month + 1, dayOfMonth)
+        listener?.onDialogResult(year, month + 1, dayOfMonth)
     }
 
     interface Callback {
-        fun onDialogResult(dialogCode: Int?, year: Int, month: Int, dayOfMonth: Int)
+        fun onDialogResult(year: Int, month: Int, dayOfMonth: Int)
     }
 }
