@@ -8,7 +8,7 @@ import io.objectbox.BoxStore
 object TodoStoreRepository {
 
     lateinit var boxStore: BoxStore
-    lateinit var todoBox: Box<TodoModel>
+    lateinit var todoBox: Box<Todo>
 
     fun init(context: Context) {
         boxStore = MyObjectBox.builder()
@@ -16,22 +16,15 @@ object TodoStoreRepository {
             .build()
     }
 
-    fun insert(todoModel: TodoModel) {
-        todoBox = boxStore.boxFor(TodoModel::class.java)
+    fun insert(todoModel: Todo) {
+        todoBox = boxStore.boxFor(Todo::class.java)
         todoBox.put(todoModel)
     }
 
-    fun get():ArrayList<Todo>?{
-        todoBox = boxStore.boxFor(TodoModel::class.java)
-        val todoModelList = todoBox.all
-        Log.d("tag", todoModelList.size.toString())
-
-        val todoList=ArrayList<Todo>()
-
-        for (todoModel in todoModelList) {
-            val todo = Todo(todoModel)
-            todoList.add(todo)
-        }
+    fun get(): ArrayList<Todo>? {
+        todoBox = boxStore.boxFor(Todo::class.java)
+        val todoList = todoBox.all as ArrayList<Todo>
+        Log.d("tag", todoList.size.toString())
 
         return todoList
     }

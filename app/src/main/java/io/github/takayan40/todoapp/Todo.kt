@@ -1,7 +1,10 @@
 package io.github.takayan40.todoapp
 
+import io.objectbox.annotation.Entity
+import io.objectbox.annotation.Id
 import java.util.*
 
+@Entity
 class Todo(
     var title: String = "",
     var detail: String = "",
@@ -9,13 +12,7 @@ class Todo(
     var deadline: Date? = null,
     var registed: Date? = null,
     var group: String = ""
-){
-    constructor(todoModel: TodoModel) : this() {
-        title = todoModel.title
-        detail = todoModel.detail
-        priority = todoModel.priority
-        deadline = todoModel.deadline
-        registed = todoModel.registed
-        group = todoModel.group
-    }
+) {
+    @Id
+    var id: Long = 0
 }

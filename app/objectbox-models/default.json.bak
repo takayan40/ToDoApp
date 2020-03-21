@@ -4,44 +4,44 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:1350545383944864971",
-      "lastPropertyId": "7:4720538500941452217",
-      "name": "Todo",
+      "id": "2:5645344254326158601",
+      "lastPropertyId": "7:3184839854185738771",
+      "name": "TodoModel",
       "properties": [
         {
-          "id": "1:4199285636470104963",
+          "id": "1:4427710550360051801",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:9043001587609698038",
+          "id": "2:4877127785983303337",
           "name": "title",
           "type": 9
         },
         {
-          "id": "3:2464493084587802242",
+          "id": "3:8615462007456725571",
           "name": "detail",
           "type": 9
         },
         {
-          "id": "4:6444829889528017327",
+          "id": "4:5900335283648759126",
           "name": "priority",
-          "type": 5,
+          "type": 6,
           "flags": 4
         },
         {
-          "id": "5:2774625551879288090",
+          "id": "5:6869140128556391170",
           "name": "deadline",
           "type": 10
         },
         {
-          "id": "6:64427838235911897",
+          "id": "6:499648625329320029",
           "name": "registed",
           "type": 10
         },
         {
-          "id": "7:4720538500941452217",
+          "id": "7:3184839854185738771",
           "name": "group",
           "type": 9
         }
@@ -49,15 +49,25 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:1350545383944864971",
+  "lastEntityId": "2:5645344254326158601",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    1350545383944864971
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    4199285636470104963,
+    9043001587609698038,
+    2464493084587802242,
+    6444829889528017327,
+    2774625551879288090,
+    64427838235911897,
+    4720538500941452217
+  ],
   "retiredRelationUids": [],
   "version": 1
 }
