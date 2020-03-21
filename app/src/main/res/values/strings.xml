@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ToDoApp</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">タスク</string>
+    <string name="tab_text_2">完了</string>
     <string name="title">タイトル</string>
     <string name="date">日付</string>
     <string name="priority">優先度</string>

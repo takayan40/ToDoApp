@@ -47,7 +47,7 @@ class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClic
     }
 
 
-    override fun onClickItemListener(view: View, position: Int) {
+    override fun onClickItemListener(position: Int) {
         Toast.makeText(context, "position $position was tapped", Toast.LENGTH_SHORT).show()
     }
 

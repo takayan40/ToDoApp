@@ -1,6 +1,7 @@
 package io.github.takayan40.todoapp
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -27,10 +28,21 @@ class TodoAdapter(
     @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[holder.adapterPosition]
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClickItemListener(position)
+        }
 
         holder.let {
             it.titleListTextView.text = item.title
             it.deadlineTextView.text = SimpleDateFormat("yyyy/MM/dd").format(item.deadline)
+            it.itemView.setBackgroundColor(
+                when (item.priority) {
+                    0L -> Color.BLUE
+                    1L -> Color.CYAN
+                    else -> Color.RED
+                }
+            )
+
         }
     }
 

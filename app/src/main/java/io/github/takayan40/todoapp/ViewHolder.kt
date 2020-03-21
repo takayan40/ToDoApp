@@ -12,7 +12,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
 
     interface ItemClickListener{
-        fun onClickItemListener(view:View, position:Int)
+        fun onClickItemListener(position:Int)
     }
 
     interface HomeView{
