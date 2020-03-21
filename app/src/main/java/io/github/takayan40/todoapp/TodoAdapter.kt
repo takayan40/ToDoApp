@@ -29,7 +29,7 @@ class TodoAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[holder.adapterPosition]
         holder.itemView.setOnClickListener {
-            itemClickListener.onClickItemListener(position)
+            itemClickListener.onClickItemListener(item)
         }
 
         holder.let {

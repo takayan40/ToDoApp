@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title_edit"
-            android:text="@string/date" />
+            android:text="@string/deadline" />
 
         <EditText
             android:id="@+id/deadline_edit"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/priority_view"
             android:layout_alignParentEnd="true"
-            android:entries="@array/list"
+            android:entries="@array/priority_list"
             android:spinnerMode="dialog" />
 
         <TextView

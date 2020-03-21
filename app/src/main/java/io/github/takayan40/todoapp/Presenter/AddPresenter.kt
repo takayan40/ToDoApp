@@ -1,6 +1,5 @@
 package io.github.takayan40.todoapp.Presenter
 
-import android.util.Log
 import io.github.takayan40.todoapp.Todo
 import io.github.takayan40.todoapp.TodoStoreRepository
 import kotlinx.coroutines.GlobalScope
@@ -23,10 +22,23 @@ class AddPresenter {
             TodoStoreRepository.insert(todo)
         }
     }
-    fun update(title: String, detail: String, priority: Long, deadline: String, registed: Date){
 
+    fun update(id:Long, title: String, detail: String, priority: Long, deadline: String, registed: Date) {
+        val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.JAPAN)
+        val todo = Todo(
+            title,
+            detail,
+            priority,
+            sdf.parse(deadline),
+            registed
+        )
+        todo.id = id
+        GlobalScope.launch {
+            TodoStoreRepository.update(todo)
+        }
     }
-    fun delet(){
 
+    fun delete(id: Long) {
+        TodoStoreRepository.delete(id)
     }
 }

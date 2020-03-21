@@ -6,7 +6,7 @@ import io.github.takayan40.todoapp.ViewHolder
 class MainPresenter(val view: ViewHolder.HomeView) {
 
     fun dataUpdate() {
-        val todoList = TodoStoreRepository.get()
+        val todoList = TodoStoreRepository.getAll()
         if (todoList != null) {
             view.updateAdapter(todoList)
         }

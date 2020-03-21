@@ -1,6 +1,7 @@
 package io.github.takayan40.todoapp
 
 import android.content.Context
+import android.content.LocusId
 import android.util.Log
 import io.objectbox.Box
 import io.objectbox.BoxStore
@@ -16,12 +17,22 @@ object TodoStoreRepository {
             .build()
     }
 
-    fun insert(todoModel: Todo) {
+    fun insert(todo: Todo) {
         todoBox = boxStore.boxFor(Todo::class.java)
-        todoBox.put(todoModel)
+        todoBox.put(todo)
     }
 
-    fun get(): ArrayList<Todo>? {
+    fun update(todo: Todo) {
+        todoBox = boxStore.boxFor(Todo::class.java)
+        todoBox.put(todo)
+    }
+
+    fun delete(id: Long) {
+        todoBox = boxStore.boxFor(Todo::class.java)
+        todoBox.remove(id)
+    }
+
+    fun getAll(): ArrayList<Todo>? {
         todoBox = boxStore.boxFor(Todo::class.java)
         val todoList = todoBox.all as ArrayList<Todo>
         Log.d("tag", todoList.size.toString())

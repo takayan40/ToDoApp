@@ -1,7 +1,9 @@
 package io.github.takayan40.todoapp.ui.main
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +15,7 @@ import io.github.takayan40.todoapp.R
 import io.github.takayan40.todoapp.Todo
 import io.github.takayan40.todoapp.TodoAdapter
 import io.github.takayan40.todoapp.ViewHolder
-
+import io.github.takayan40.todoapp.view.DetailActivity
 
 class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClickListener {
 
@@ -46,9 +48,11 @@ class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClic
 
     }
 
-
-    override fun onClickItemListener(position: Int) {
-        Toast.makeText(context, "position $position was tapped", Toast.LENGTH_SHORT).show()
+    override fun onClickItemListener(todo: Todo) {
+        val intent = Intent(activity, DetailActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, todo)
+        }
+        startActivity(intent)
     }
 
     override fun onResume() {

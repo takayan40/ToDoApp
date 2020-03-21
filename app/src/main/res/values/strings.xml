@@ -3,16 +3,18 @@
     <string name="tab_text_1">タスク</string>
     <string name="tab_text_2">完了</string>
     <string name="title">タイトル</string>
-    <string name="date">日付</string>
+    <string name="deadline">期限</string>
+    <string name="registed">登録日</string>
     <string name="priority">優先度</string>
     <string name="detail">詳細</string>
     <string name="add">登録</string>
-    <string name="complete">完了</string>
+    <string name="update">上書き</string>
     <string name="delete">削除</string>
 
-    <string-array name="list">
+    <string-array name="priority_list">
         <item>低</item>
         <item>中</item>
         <item>高</item>
+        <item>完了</item>
     </string-array>
 </resources>
