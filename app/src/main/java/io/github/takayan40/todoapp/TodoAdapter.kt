@@ -35,11 +35,12 @@ class TodoAdapter(
         holder.let {
             it.titleListTextView.text = item.title
             it.deadlineTextView.text = SimpleDateFormat("yyyy/MM/dd").format(item.deadline)
-            it.itemView.setBackgroundColor(
+            it.itemView.setBackgroundResource(
                 when (item.priority) {
-                    0L -> Color.BLUE
-                    1L -> Color.CYAN
-                    else -> Color.RED
+                    0L -> R.color.priority0
+                    1L -> R.color.priority1
+                    2L -> R.color.priority2
+                    else -> R.color.priority3
                 }
             )
 

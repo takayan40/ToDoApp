@@ -11,4 +11,10 @@ class MainPresenter(val view: ViewHolder.HomeView) {
             view.updateAdapter(todoList)
         }
     }
+    fun dataUpdateComplete(){
+        val todoList = TodoStoreRepository.getComplete()
+        if (todoList != null) {
+            view.updateAdapter(todoList)
+        }
+    }
 }

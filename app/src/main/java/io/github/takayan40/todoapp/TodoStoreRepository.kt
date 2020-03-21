@@ -5,6 +5,7 @@ import android.content.LocusId
 import android.util.Log
 import io.objectbox.Box
 import io.objectbox.BoxStore
+import io.objectbox.kotlin.query
 
 object TodoStoreRepository {
 
@@ -34,9 +35,14 @@ object TodoStoreRepository {
 
     fun getAll(): ArrayList<Todo>? {
         todoBox = boxStore.boxFor(Todo::class.java)
-        val todoList = todoBox.all as ArrayList<Todo>
-        Log.d("tag", todoList.size.toString())
+        val todoList = todoBox.query().between(Todo_.priority, 0, 2).build().find()
+        return todoList as ArrayList<Todo>
+    }
 
-        return todoList
+    fun getComplete(): ArrayList<Todo>? {
+        todoBox = boxStore.boxFor(Todo::class.java)
+        val todoList = todoBox.query().equal(Todo_.priority, 3).build().find()
+        return todoList as ArrayList<Todo>
+
     }
 }
