@@ -17,7 +17,7 @@ import io.github.takayan40.todoapp.TodoAdapter
 import io.github.takayan40.todoapp.ViewHolder
 import io.github.takayan40.todoapp.view.DetailActivity
 
-class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClickListener {
+class PlaceholderFragment2 : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClickListener {
 
     private lateinit var mainPresenter: MainPresenter
     private lateinit var todoAdapter: TodoAdapter
@@ -57,7 +57,7 @@ class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClic
 
     override fun onResume() {
         super.onResume()
-        mainPresenter.dataUpdate()
+        mainPresenter.dataUpdateComplete()
     }
 
     override fun updateAdapter(list: ArrayList<Todo>) {
@@ -69,8 +69,8 @@ class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClic
         private const val ARG_SECTION_NUMBER = "section_number"
 
         @JvmStatic
-        fun newInstance(sectionNumber: Int): PlaceholderFragment {
-            return PlaceholderFragment().apply {
+        fun newInstance(sectionNumber: Int): PlaceholderFragment2 {
+            return PlaceholderFragment2().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }
