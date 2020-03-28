@@ -27,8 +27,7 @@ class PlaceholderFragment2 : Fragment(), ViewHolder.HomeView, ViewHolder.ItemCli
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_main, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
