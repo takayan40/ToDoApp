@@ -20,6 +20,7 @@ class Todo(
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readLong()
+        title = parcel.readString().toString()
         detail = parcel.readString().toString()
         priority = parcel.readLong()
         deadline = parcel.readSerializable() as Date
@@ -27,9 +28,9 @@ class Todo(
         group = parcel.readString().toString()
     }
 
-
     override fun writeToParcel(out: Parcel, flags: Int) {
         out.writeLong(id)
+        out.writeString(title)
         out.writeString(detail)
         out.writeLong(priority)
         out.writeSerializable(deadline)

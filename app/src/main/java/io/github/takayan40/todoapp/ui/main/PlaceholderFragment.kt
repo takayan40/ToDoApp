@@ -7,7 +7,6 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +26,7 @@ class PlaceholderFragment : Fragment(), ViewHolder.HomeView, ViewHolder.ItemClic
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_main, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
