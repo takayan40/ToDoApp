@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setEvent(){
+    private fun setEvent(){
         fab.setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
