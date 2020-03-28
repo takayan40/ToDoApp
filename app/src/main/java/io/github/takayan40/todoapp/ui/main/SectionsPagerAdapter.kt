@@ -15,7 +15,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
-        return when(position){
+        return when (position) {
             0 -> PlaceholderFragment.newInstance(position + 1)
             else -> PlaceholderFragment2.newInstance(position + 1)
         }

@@ -7,7 +7,6 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,13 +26,13 @@ class PlaceholderFragment2 : Fragment(), ViewHolder.HomeView, ViewHolder.ItemCli
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_main, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mainPresenter = MainPresenter(this)
+        mainPresenter.dataUpdateComplete()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,13 +47,6 @@ class PlaceholderFragment2 : Fragment(), ViewHolder.HomeView, ViewHolder.ItemCli
 
     }
 
-    override fun onClickItemListener(todo: Todo) {
-        val intent = Intent(activity, DetailActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, todo)
-        }
-        startActivity(intent)
-    }
-
     override fun onResume() {
         super.onResume()
         mainPresenter.dataUpdateComplete()
@@ -63,6 +55,17 @@ class PlaceholderFragment2 : Fragment(), ViewHolder.HomeView, ViewHolder.ItemCli
     override fun updateAdapter(list: ArrayList<Todo>) {
         todoAdapter.update(list)
 
+    }
+
+    override fun onClickItemListener(todo: Todo) {
+        val intent = Intent(activity, DetailActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, todo)
+        }
+        startActivity(intent)
+    }
+
+    override fun onClickLongItemListener(todo: Todo):Boolean {
+        return true
     }
 
     companion object {

@@ -36,8 +36,7 @@
             android:id="@+id/title_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title_view"
-            android:text="サンプルタイトル" />
+            android:layout_below="@+id/title_view" />
 
         <TextView
             android:id="@+id/deadline_view"
@@ -85,8 +84,7 @@
             android:id="@+id/detail_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detail_view"
-            android:text="サンプル内容" />
+            android:layout_below="@+id/detail_view" />
 
         <Button
             android:id="@+id/add_button"

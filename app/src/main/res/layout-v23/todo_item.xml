@@ -8,9 +8,8 @@
     android:layout_marginBottom="4dp"
     android:padding="16dp"
     android:clickable="true"
-    android:foreground="@drawable/ripple_effect"
     android:focusable="true"
-    tools:ignore="UnusedAttribute">
+    android:foreground="@drawable/ripple_effect">
 
     <TextView
         android:id="@+id/title_list_text"
