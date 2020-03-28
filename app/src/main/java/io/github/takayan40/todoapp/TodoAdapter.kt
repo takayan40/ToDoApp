@@ -1,7 +1,6 @@
 package io.github.takayan40.todoapp
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -32,10 +31,14 @@ class TodoAdapter(
             itemClickListener.onClickItemListener(item)
         }
 
+        holder.itemView.setOnLongClickListener {
+            itemClickListener.onClickLongItemListener(item)
+        }
+
         holder.let {
             it.titleListTextView.text = item.title
             it.deadlineTextView.text = SimpleDateFormat("yyyy/MM/dd").format(item.deadline)
-            it.itemView.setBackgroundResource(
+            it.relativeLayout.setBackgroundResource(
                 when (item.priority) {
                     0L -> R.color.priority0
                     1L -> R.color.priority1
@@ -43,7 +46,6 @@ class TodoAdapter(
                     else -> R.color.priority3
                 }
             )
-
         }
     }
 
